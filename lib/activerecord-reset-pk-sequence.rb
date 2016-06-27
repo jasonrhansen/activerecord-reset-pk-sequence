@@ -12,7 +12,7 @@ module ActiveRecord
           execute(update_seq_sql)
         when 'Mysql', 'Mysql2'
           new_max = model.maximum(model.primary_key) + 1 || 1
-          update_seq_sql = "ALTER TABLE '#{table_name}' AUTO_INCREMENT = #{new_max};"
+          update_seq_sql = "ALTER TABLE `#{table_name}` AUTO_INCREMENT = #{new_max};"
           execute(update_seq_sql)
         when 'PostgreSQL'
           reset_pk_sequence!(table_name)
