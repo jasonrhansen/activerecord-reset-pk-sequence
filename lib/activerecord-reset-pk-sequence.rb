@@ -2,7 +2,7 @@ require "activerecord-reset-pk-sequence/version"
 
 module ActiveRecord
   class Base
-    def self.reset_pk_sequence
+    def self.reset_pk_sequence!
       case ActiveRecord::Base.connection.adapter_name
       when 'SQLite'
         new_max = maximum(primary_key) || 0
